@@ -49,8 +49,8 @@ export default function App() {
   const carMarkerIcon = new L.Icon({
     iconUrl: carIcon,
     shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png",
-    iconSize: [30,30],
-    iconAnchor: [15,30],
+    iconSize: [35,35],
+    iconAnchor: [17,20],
     popupAnchor: [0,0],
     tooltipAnchor: [0,0],
     shadowSize: [41, 41]
@@ -59,18 +59,18 @@ export default function App() {
   return (
     <div>
       <Map center={[21.8853, -102.2916]} zoom={12} ref={mapRef} minZoom={0} maxZoom={18} zoomSnap={0.5}>
-        <TileLayer
-          url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}"
-          attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
-          subdomains="abcd"
-          ext="png"
-        />
+      <TileLayer
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+  subdomains="abc"
+/>
+
 
         {posts.length > 1 && (
           <Polyline
             positions={posts.map(post => [post.latitud, post.longitud])}
-            color="red"
-            weight={5}
+            color="#0085FF"
+            weight={6}
           />
         )}
 
